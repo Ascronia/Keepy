@@ -11,7 +11,7 @@ def extract_metadata(filename):
             continue
         elif lsp == '':
             break
-        if 'Number Electrodes' in lsp[1] or 'Number of regions of interest' or 'Number of regions of interest (ROIs)' in lsp[1]:
+        if 'Number Electrodes' in lsp[1] or 'Number of regions of interest' in lsp[1]:
             nr_elect = int(lsp[0])
         elif 'Number of matrices' in lsp[1]:
             nr_mat = int(lsp[0])
@@ -34,7 +34,7 @@ def extract_matrices(filename, enforce_nr_matrices = None):
     
     # skip header
     a = f.readline()
-    while ' = ' in a  or 'File name' in a or a == '' or 't-statistics':
+    while ' = ' in a  or 'File name' in a or a == '' or 't-statistics' in a:
         a = f.readline()
         
     for mat_i in range(nr_mat):
