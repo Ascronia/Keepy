@@ -48,9 +48,9 @@ def extract_matrices(filename, enforce_nr_matrices = None):
             lsp = line.split(' ')
             lsp.remove('')
             for i,e in enumerate(lsp):
-				if e == '' or e == ' ':
-					del lsp[i]
-					
+	        if e == '' or e == ' ':
+		    del lsp[i]
+            print 'lsp', lsp			
             assert len(lsp) == nr_elect
             
             result_matrix[elect_i, :, mat_i] = np.array(lsp)
