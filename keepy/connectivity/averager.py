@@ -45,12 +45,12 @@ def extract_matrices(filename, enforce_nr_matrices = None):
             line = f.readline()
            # print "line", line
 
-            lsp = line.split('  ')
-            try:
-                lsp.remove('') # remove first empty character
-            except ValueError:
-                break
-
+            lsp = line.split(' ')
+            lsp.remove('')
+            for i,e in enumerate(lsp):
+				if e == '' or e == ' ':
+					del lsp[i]
+					
             assert len(lsp) == nr_elect
             
             result_matrix[elect_i, :, mat_i] = np.array(lsp)
