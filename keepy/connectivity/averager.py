@@ -34,7 +34,7 @@ def extract_matrices(filename, enforce_nr_matrices = None):
     
     # skip header
     a = f.readline()
-    while ' = ' in a  or 'File name' in a or a == '':
+    while ' = ' in a  or 'File name' in a or a == '' or 't-statistics':
         a = f.readline()
         
     for mat_i in range(nr_mat):
